@@ -12,19 +12,30 @@ const Counter = () => {
     return classes;
   };
 
-  const handleIncrement = (productId) => {
-    console.log("productId", productId);
+  const handleIncrement = () => {
     setCount(count + 1);
+  };
+
+  const handleDecrement = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
   };
 
   return (
     <>
       <span className={getBadgeClasses()}>{formCount()}</span>
       <button
-        onClick={() => handleIncrement(1)}
+        onClick={() => handleIncrement()}
         className="btn btn-secondary btn-sm"
       >
         Increment
+      </button>
+      <button
+        onClick={() => handleDecrement()}
+        className="btn btn-secondary btn-sm"
+      >
+        Decrement
       </button>
     </>
   );
