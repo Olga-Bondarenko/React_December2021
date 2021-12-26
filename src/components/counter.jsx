@@ -3,8 +3,6 @@ import React, { useState } from "react";
 const Counter = () => {
   const [count, setCount] = useState(1);
 
-  const tags = ["2"];
-
   const formCount = () => {
     return count === 0 ? "Ноль" : count;
   };
@@ -13,19 +11,21 @@ const Counter = () => {
     classes += count === 0 ? "danger" : "primary";
     return classes;
   };
-  const renderTags = () => {
-    if (!tags.length) {
-      return "Тегов не найдено";
-    }
-    return tags.map((tag) => <li key={tag}>{tag}</li>);
+
+  const handleIncrement = (productId) => {
+    console.log("productId", productId);
+    setCount(count + 1);
   };
 
   return (
     <>
-      {!tags.length && "Теги на найдены"}
-      {renderTags()}
       <span className={getBadgeClasses()}>{formCount()}</span>
-      <button className="btn btn-secondary btn-sm">Increment </button>
+      <button
+        onClick={() => handleIncrement(1)}
+        className="btn btn-secondary btn-sm"
+      >
+        Increment
+      </button>
     </>
   );
 };
