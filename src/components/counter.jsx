@@ -5,9 +5,15 @@ const Counter = () => {
   const formCount = () => {
     return count === 0 ? "Ноль" : count;
   };
+
   return (
     <>
-      <span className="badge bg-primary m-2">{formCount()}</span>
+      <span
+        style={{ fontSize: 10, fontWeight: "bold" }}
+        className="badge bg-primary m-2"
+      >
+        {formCount()}
+      </span>
       <button className="btn btn-secondary btn-sm">Increment </button>
     </>
   );
