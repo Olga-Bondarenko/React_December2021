@@ -1,6 +1,6 @@
 import React from "react";
 
-const NavBar = (props) => {
+const NavBar = ({ totalItems }) => {
   return (
     <ul className="nav">
       <li className="nav-item">
@@ -22,7 +22,7 @@ const NavBar = (props) => {
         <a className="nav-link   position-relative">
           Корзина
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            {props.totalItems}
+            {totalItems}
             <span class="visually-hidden">unread messages</span>
           </span>
         </a>

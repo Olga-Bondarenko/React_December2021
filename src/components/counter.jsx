@@ -1,25 +1,25 @@
 import React from "react";
 
-const Counter = (props) => {
+const Counter = ({ id, name, value, onIncrement, onDecrement, onDelete }) => {
   const formValue = () => {
-    return props.value === 0 ? "Ноль" : props.value;
+    return value === 0 ? "Ноль" : value;
   };
   const getBadgeClasses = () => {
     let classes = "badge m-2 bg-";
-    classes += props.value === 0 ? "danger" : "primary";
+    classes += value === 0 ? "danger" : "primary";
     return classes;
   };
 
   const handleDecrement = () => {
-    props.onDecrement(props.id, props.value);
+    onDecrement(id, value);
   };
 
   return (
     <div>
-      <h4>{props.name}</h4>
+      <h4>{name}</h4>
       <span className={getBadgeClasses()}>{formValue()}</span>
       <button
-        onClick={() => props.onIncrement(props.id, props.value)}
+        onClick={() => onIncrement(id, value)}
         className="btn btn-secondary btn-sm m-1"
       >
         Increment
@@ -32,7 +32,7 @@ const Counter = (props) => {
       </button>
       <button
         className="btn btn-danger btn-sm m-2"
-        onClick={() => props.onDelete(props.id)}
+        onClick={() => onDelete(id)}
       >
         Delete
       </button>
